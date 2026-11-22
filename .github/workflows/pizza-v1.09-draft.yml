@@ -1,0 +1,25 @@
+name: Prepare Pizza Timer v1.09 draft release
+on:
+  push:
+    paths:
+      - '.github/workflows/pizza-v1.09-draft.yml'
+permissions:
+  contents: write
+jobs:
+  prepare-draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create draft release (do not publish)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if gh release view pizza-v1.09 >/dev/null 2>&1; then
+            echo "pizza-v1.09 release already exists; not replacing it"
+            exit 0
+          fi
+          gh release create pizza-v1.09 \
+            --target main \
+            --draft \
+            --title "Pizza Timer v1.09 - Device Info and Restart" \
+            --notes "First ESP32-C3 Pizza Timer OTA update from v1.08. Adds read-only firmware version and startup RSSI, restart confirmation (B2 YES, B3 NO, B1 Enter), and six-item configuration menu. Before publishing, attach the compiled ESP32-C3 application binary named Pizza_Timer_ESP32C3_Triple_Alarm_v1_09.ino.bin. Board: PIZZA-ESP32C3-SUPERMINI. Chip: esp32c3. Do not attach the Freenove/LVGL firmware."
