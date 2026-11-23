@@ -1,6 +1,6 @@
 {
   "version": "v1.09",
-  "url": "https://github.com/ryangasesesp32-crypto/PizzaTimer3Buttons/releases/download/pizza-v1.09/Pizza_Timer_ESP32C3_Triple_Alarm_v1_09.ino.bin",
+  "url": "https://github.com/ryangasesesp32-crypto/PizzaTimer3Buttons/releases/download/pizza-v1.09/PizzaTimer3Buttons.ino.bin",
   "board": "PIZZA-ESP32C3-SUPERMINI",
   "chip": "esp32c3"
 }
